@@ -1,0 +1,22 @@
+{
+    "KPlugin": {
+        "Id": "SiyamX7.system.monitor.meteoris",
+        "Name": "Meteoris",
+        "Description": "Customizable Simple System Monitor",
+        "Icon": "utilities-system-monitor",
+        "Authors": [
+            {
+                "Name": "Mohammad Siyam"
+            }
+        ],
+        "Category": "System Information",
+        "Version": "2.1.0",
+        "License": "GPL-3.0",
+        "Website": "https://github.com/SiyamX7"
+    },
+    "X-Plasma-API": "declarativeappletscript",
+    "X-Plasma-MainScript": "ui/main.qml",
+    "X-Plasma-ConfigModel": "config/config.qml",
+    "KPackageStructure": "Plasma/Applet",
+    "X-Plasma-API-Minimum-Version": "6.0"
+}

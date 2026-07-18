@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+                          http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name=""/>
+
+    <group name="General">
+        <entry name="refreshInterval" type="Int">
+            <default>1500</default>
+        </entry>
+
+        <!-- Net Speed -->
+        <entry name="showNet" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="netSpeedInline" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="netIcon" type="String">
+            <default>󰓅</default>
+        </entry>
+        <entry name="netIconColor" type="String">
+            <default>#89b4fa</default>
+        </entry>
+        <entry name="netFontFamily" type="String">
+            <default>JetBrainsMono Nerd Font</default>
+        </entry>
+        <entry name="netFontColor" type="String">
+            <default>#cdd6f4</default>
+        </entry>
+        <entry name="netDownColor" type="String">
+            <default>#a6e3a1</default>
+        </entry>
+        <entry name="netUpColor" type="String">
+            <default>#f38ba8</default>
+        </entry>
+
+        <!-- CPU -->
+        <entry name="showCpu" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="cpuIcon" type="String">
+            <default></default>
+        </entry>
+        <entry name="cpuIconColor" type="String">
+            <default>#cba6f7</default>
+        </entry>
+        <entry name="cpuFontFamily" type="String">
+            <default>JetBrainsMono Nerd Font</default>
+        </entry>
+        <entry name="cpuFontColor" type="String">
+            <default>#a6e3a1</default>
+        </entry>
+
+        <!-- RAM -->
+        <entry name="showRam" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="ramIcon" type="String">
+            <default></default>
+        </entry>
+        <entry name="ramIconColor" type="String">
+            <default>#a6e3a1</default>
+        </entry>
+        <entry name="ramFontFamily" type="String">
+            <default>JetBrainsMono Nerd Font</default>
+        </entry>
+        <entry name="ramFontColor" type="String">
+            <default>#f9e2af</default>
+        </entry>
+    </group>
+</kcfg>

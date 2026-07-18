@@ -1,79 +1,128 @@
-# 🌌 Meteoris
-
 <div align="center">
 
-### A sleek and lightweight KDE Plasma 6 system monitor
+# 🌌 Meteoris
 
-Monitor CPU usage, RAM usage, and network speed in real time with a clean, modern, and highly customizable widget.
+A modern, lightweight system monitor widget for KDE Plasma 6.
 
-![Plasma](https://img.shields.io/badge/KDE%20Plasma-6-blue)
-![Qt](https://img.shields.io/badge/Qt-6-green)
-![License](https://img.shields.io/badge/License-MIT-orange)
-![Platform](https://img.shields.io/badge/Platform-Linux-lightgrey)
+Real-time CPU usage, memory usage, and network speed — designed to blend naturally into your desktop.
+
+<p>
+  <img src="https://img.shields.io/badge/KDE%20Plasma-6-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/Qt-6-green?style=flat-square">
+  <img src="https://img.shields.io/badge/Linux-Supported-orange?style=flat-square">
+  <img src="https://img.shields.io/github/license/SiyamX7/meteoris-kde-widget?style=flat-square">
+</p>
+
+<img src="preview/1.png" alt="Meteoris Preview">
 
 </div>
 
 ---
 
-## ✨ Features
+## About
 
-* 📊 Live CPU usage monitoring
-* 🧠 Real-time RAM usage display
-* 🌐 Network download/upload speed monitoring
-* 🎨 Customizable icons and appearance
-* ⚡ Lightweight and efficient
-* 🖥️ Native KDE Plasma integration
+Meteoris is a KDE Plasma widget focused on delivering essential system information in a clean and customizable format.
 
----
+Instead of trying to be a full system monitor, it provides the information most users actually care about directly from the panel:
 
-## 📸 Screenshots
+- Network speed
+- CPU usage
+- Memory usage
 
-> Add screenshots inside the `screenshots/` folder and update the links below.
-
-```text
-screenshots/
-├── preview-1.png
-├── preview-2.png
-└── preview-3.png
-```
-
-Example:
-
-```markdown
-![Preview](screenshots/preview-1.png)
-```
+The goal is simple: stay informative, stay lightweight, and stay visually consistent with modern Plasma desktops.
 
 ---
 
-## 🚀 Installation
+## Features
 
-### Clone the repository
+### 🌐 Network Monitoring
+
+Monitor real-time download and upload speeds directly from the panel.
+
+- Compact mode
+- Side-by-side layout
+- Custom colors
+- Custom icons
+
+### 🧠 Memory Usage
+
+View current RAM usage at a glance.
+
+- Custom icon support
+- Font customization
+- Color customization
+
+### ⚙️ CPU Usage
+
+Live CPU usage monitoring with minimal overhead.
+
+- Real-time updates
+- Configurable appearance
+- Consistent panel integration
+
+### 🎨 Customization
+
+Meteoris was built to be personalized.
+
+Customize:
+
+- Icons
+- Colors
+- Fonts
+- Refresh interval
+- Layout behavior
+- Visibility of individual modules
+
+---
+
+## Screenshots
+
+### Panel View
+
+<p align="center">
+  <img src="preview/1.png">
+</p>
+
+### Settings
+
+<p align="center">
+  <img src="preview/3.png">
+</p>
+
+### More Previews
+
+<p align="center">
+  <img src="preview/2.png" width="48%">
+  <img src="preview/4.png" width="48%">
+</p>
+
+---
+
+## Installation
+
+### Quick Install
 
 ```bash
 git clone https://github.com/SiyamX7/meteoris-kde-widget.git
 cd meteoris-kde-widget
-```
 
-### Run the installer
-
-```bash
 chmod +x install.sh
 ./install.sh
 ```
 
 After installation:
 
-**Desktop → Add Widgets → Search for "Meteoris"**
+**Desktop → Add Widgets → Meteoris**
 
 ---
 
-## 🛠️ Manual Installation
+## Manual Installation
 
 ```bash
 mkdir -p ~/.local/share/plasma/plasmoids
 
-cp -r SiyamX7.system.monitor.meteoris \
-~/.local/share/plasma/plasmoids/
+cp -r . \
+~/.local/share/plasma/plasmoids/SiyamX7.system.monitor.meteoris
 ```
 
 Restart Plasma:
@@ -84,84 +133,54 @@ plasmashell --replace &
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
-SiyamX7.system.monitor.meteoris/
-├── contents/
-│   ├── config/
-│   ├── ui/
-│   └── code/
-├── metadata.json
-├── logos.conf
+.
+├── contents
+│   ├── config
+│   └── ui
 ├── install.sh
+├── LICENSE
+├── logos.conf
+├── metadata.json
+├── preview
 └── README.md
 ```
 
 ---
 
-## ⚙️ Requirements
+## Compatibility
 
-| Component  | Version   |
-| ---------- | --------- |
-| KDE Plasma | 6.x       |
-| Qt         | 6.x       |
-
----
-
-## 🎨 Customization
-
-Meteoris is designed to be customizable.
-
-You can adjust:
-
-* Icons
-* Layout
-* Fonts
-* Widget appearance
-* Logo configuration
-* Display behavior
-
-through Plasma settings and project configuration files.
+| Component | Supported |
+|------------|------------|
+| KDE Plasma 6 | ✅ |
+| Qt 6 | ✅ |
+| Wayland | ✅ |
+| X11 | ✅ |
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
-Contributions, suggestions, and bug reports are welcome.
+Suggestions, bug reports, and pull requests are always welcome.
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Open a Pull Request
+If you find an issue or have an idea that could improve the widget, feel free to open an issue.
 
 ---
 
-## 🐞 Reporting Issues
+## License
 
-Found a bug or have a feature request?
+Distributed under the MIT License.
 
-Open an issue on GitHub and include:
-
-* Plasma version
-* Distribution name
-* Screenshots (if applicable)
-* Steps to reproduce
-
----
-
-## 📜 License
-
-This project is licensed under the MIT License.
-
-See the `LICENSE` file for details.
+See the LICENSE file for details.
 
 ---
 
 <div align="center">
 
-### Made with ❤️ for KDE Plasma
+Made with ☕ and too much time spent tweaking KDE panels.
 
-**Created by SiyamX7**
+**SiyamX7**
 
 </div>

@@ -81,20 +81,16 @@ Customize:
 
 <p align="center">
   <img src="preview/1.png">
-  <img src="preview/2.png" width="48%">
+  <img src="preview/2.png">
 </p>
 
 ### Settings
 
 <p align="center">
   <img src="preview/3.png">
+  <img src="preview/4.png">
 </p>
 
-### More Previews
-
-<p align="center">
-  <img src="preview/4.png" width="48%">
-</p>
 
 ---
 

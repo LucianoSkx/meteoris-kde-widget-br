@@ -12,6 +12,7 @@
         "Category": "System Information",
         "Version": "2.1.0",
         "License": "GPL-3.0",
+        "BugReportUrl": "https://github.com/SiyamX7/meteoris/issues",
         "Website": "https://github.com/SiyamX7"
     },
     "X-Plasma-API": "declarativeappletscript",

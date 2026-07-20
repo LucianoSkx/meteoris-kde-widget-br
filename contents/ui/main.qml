@@ -2,6 +2,7 @@ import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import org.kde.plasma.plasmoid 2.0
 import org.kde.plasma.plasma5support 2.0 as P5Support
+import Qt.labs.settings 1.0
 
 PlasmoidItem {
     id: root
@@ -94,6 +95,19 @@ PlasmoidItem {
 
     preferredRepresentation: compactRepresentation
 
+    // ─── Persistent Settings (ডেটা সেভ করার জন্য) ─
+    Settings {
+        id: trafficSettings
+        category: "TrafficStats"
+        
+        property string savedDayKey: ""
+        property string savedMonthKey: ""
+        property double savedTodayDown: 0.0
+        property double savedTodayUp: 0.0
+        property double savedMonthDown: 0.0
+        property double savedMonthUp: 0.0
+    }
+
     function todayKey() {
         var d = new Date()
         return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate()
@@ -105,14 +119,17 @@ PlasmoidItem {
     }
 
     function saveTrafficStats() {
-        var content = "day=" + root.currentDayKey + "\n"
-                    + "month=" + root.currentMonthKey + "\n"
-                    + "todayDown=" + root.trafficTodayDown + "\n"
-                    + "todayUp=" + root.trafficTodayUp + "\n"
-                    + "monthDown=" + root.trafficMonthDown + "\n"
-                    + "monthUp=" + root.trafficMonthUp + "\n"
-        var cmd = "mkdir -p \"$HOME/.cache\" && printf '%s' " + "'" + content.replace(/'/g, "'\\''") + "'" + " > \"$HOME/.cache/meteoris_traffic.conf\""
-        trafficStatsWriteSource.connectSource(cmd)
+        if (!root.trafficStatsLoaded) return
+        
+        trafficSettings.savedDayKey = root.currentDayKey
+        trafficSettings.savedMonthKey = root.currentMonthKey
+        trafficSettings.savedTodayDown = root.trafficTodayDown
+        trafficSettings.savedTodayUp = root.trafficTodayUp
+        trafficSettings.savedMonthDown = root.trafficMonthDown
+        trafficSettings.savedMonthUp = root.trafficMonthUp
+        
+        // Settings অটোমেটিক সেভ হয়, তবে নিশ্চিত হতে sync() কল করতে পারেন
+        trafficSettings.sync()
     }
 
     compactRepresentation: CompactRepresentation {
@@ -546,7 +563,7 @@ PlasmoidItem {
         }
     }
 
-    // ─── CPU Frequency (for hover popup) ───
+    // ── CPU Frequency (for hover popup) ───
     P5Support.DataSource {
         id: cpuFreqSource
         engine: "executable"
@@ -609,72 +626,6 @@ PlasmoidItem {
         }
     }
 
-    // ─── Traffic stats: read from cache file ───
-    P5Support.DataSource {
-        id: trafficStatsReadSource
-        engine: "executable"
-        connectedSources: []
-
-        onNewData: function(source, data) {
-            var stdout = data["stdout"] || ""
-            var savedDay = ""
-            var savedMonth = ""
-            var td = 0, tu = 0, md = 0, mu = 0
-
-            if (stdout.trim().length > 0) {
-                var lines = stdout.trim().split("\n")
-                for (var i = 0; i < lines.length; i++) {
-                    var kv = lines[i].split("=")
-                    if (kv.length < 2) continue
-                    var k = kv[0].trim()
-                    var v = kv[1].trim()
-                    if (k === "day") savedDay = v
-                    else if (k === "month") savedMonth = v
-                    else if (k === "todayDown") td = parseFloat(v) || 0
-                    else if (k === "todayUp") tu = parseFloat(v) || 0
-                    else if (k === "monthDown") md = parseFloat(v) || 0
-                    else if (k === "monthUp") mu = parseFloat(v) || 0
-                }
-            }
-
-            var nowDay = root.todayKey()
-            var nowMonth = root.monthKey()
-
-            root.currentDayKey = nowDay
-            root.currentMonthKey = nowMonth
-
-            if (savedDay === nowDay) {
-                root.trafficTodayDown = td
-                root.trafficTodayUp = tu
-            } else {
-                root.trafficTodayDown = 0
-                root.trafficTodayUp = 0
-            }
-
-            if (savedMonth === nowMonth) {
-                root.trafficMonthDown = md
-                root.trafficMonthUp = mu
-            } else {
-                root.trafficMonthDown = 0
-                root.trafficMonthUp = 0
-            }
-
-            root.trafficStatsLoaded = true
-            disconnectSource(source)
-        }
-    }
-
-    // ─── Traffic stats: write to cache file ───
-    P5Support.DataSource {
-        id: trafficStatsWriteSource
-        engine: "executable"
-        connectedSources: []
-
-        onNewData: function(source, data) {
-            disconnectSource(source)
-        }
-    }
-
     // Debounced save timer (avoid disk write every tick)
     Timer {
         id: trafficSaveTimer
@@ -683,9 +634,39 @@ PlasmoidItem {
         onTriggered: root.saveTrafficStats()
     }
 
+    // ─── Load traffic stats from Settings on startup ──
     Component.onCompleted: {
-        // Load traffic stats from cache on startup
-        trafficStatsReadSource.connectSource("cat \"$HOME/.cache/meteoris_traffic.conf\" 2>/dev/null")
+        // Settings থেকে ডেটা লোড করুন
+        var nowDay = root.todayKey()
+        var nowMonth = root.monthKey()
+        
+        root.currentDayKey = nowDay
+        root.currentMonthKey = nowMonth
+        
+        // যদি সেভ করা দিন আজকের দিন হয়, তবে ডেটা লোড করুন
+        if (trafficSettings.savedDayKey === nowDay) {
+            root.trafficTodayDown = trafficSettings.savedTodayDown
+            root.trafficTodayUp = trafficSettings.savedTodayUp
+        } else {
+            root.trafficTodayDown = 0
+            root.trafficTodayUp = 0
+        }
+        
+        // যদি সেভ করা মাস এই মাস হয়, তবে ডেটা লোড করুন
+        if (trafficSettings.savedMonthKey === nowMonth) {
+            root.trafficMonthDown = trafficSettings.savedMonthDown
+            root.trafficMonthUp = trafficSettings.savedMonthUp
+        } else {
+            root.trafficMonthDown = 0
+            root.trafficMonthUp = 0
+        }
+        
+        root.trafficStatsLoaded = true
+    }
+
+    // ─── Save traffic stats on widget destruction ──
+    Component.onDestruction: {
+        saveTrafficStats()
     }
 
     Timer {

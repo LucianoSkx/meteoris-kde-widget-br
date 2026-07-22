@@ -14,6 +14,7 @@ MouseArea {
     property double ramPercent: 0
     property double netDown: 0
     property double netUp: 0
+    property double prefwidth: 38
 
     // New data props
     property double cpuTemp: 0
@@ -202,7 +203,7 @@ MouseArea {
 
                 RowLayout {
                     spacing: 3
-                    Layout.preferredWidth: 52
+                    Layout.preferredWidth: prefwidth
 
                     Text { text: "▼"; font.pixelSize: 7; color: compact.netDownColor }
                     Text {
@@ -214,7 +215,7 @@ MouseArea {
 
                 RowLayout {
                     spacing: 3
-                    Layout.preferredWidth: 52
+                    Layout.preferredWidth: prefwidth
 
                     Text { text: "▲"; font.pixelSize: 7; color: compact.netUpColor }
                     Text {
@@ -231,7 +232,7 @@ MouseArea {
 
                 RowLayout {
                     spacing: 3
-                    Layout.preferredWidth: 58
+                    Layout.preferredWidth: prefwidth
 
                     Text { text: "▼"; font.pixelSize: 8; color: compact.netDownColor }
                     Text {
@@ -243,7 +244,7 @@ MouseArea {
 
                 RowLayout {
                     spacing: 3
-                    Layout.preferredWidth: 58
+                    Layout.preferredWidth: prefwidth
 
                     Text { text: "▲"; font.pixelSize: 8; color: compact.netUpColor }
                     Text {

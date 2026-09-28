@@ -80,7 +80,7 @@ ScrollView {
 
     ColorDialog {
         id: colorDialog
-        title: i18n("Choose Color")
+        title: i18n("Escolher cor")
         onAccepted: {
             if (scrollRoot.activeColorField) {
                 scrollRoot.activeColorField.text = selectedColor.toString()
@@ -95,11 +95,11 @@ ScrollView {
         // ─── GENERAL ───
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("General")
+            Kirigami.FormData.label: i18n("Geral")
         }
 
         ColumnLayout {
-            Kirigami.FormData.label: i18n("Refresh:")
+            Kirigami.FormData.label: i18n("Atualização:")
             spacing: 4
 
             Slider {
@@ -118,7 +118,7 @@ ScrollView {
 
         // ─── Separator Spacing (Compact Panel) ───
         ColumnLayout {
-            Kirigami.FormData.label: i18n("Separator Spacing:")
+            Kirigami.FormData.label: i18n("Espaçamento do separador:")
             spacing: 4
 
             Slider {
@@ -130,7 +130,7 @@ ScrollView {
             }
 
             Label {
-                text: Math.round(separatorSpacingSlider.value) + " px  (space around | separator in panel)"
+                text: Math.round(separatorSpacingSlider.value) + " px  (espaço ao redor do separador | no painel)"
                 opacity: 0.7
             }
         }
@@ -138,24 +138,24 @@ ScrollView {
         // ─── NET SPEED ───
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("Net Speed")
+            Kirigami.FormData.label: i18n("Velocidade da rede")
         }
 
         CheckBox {
             id: showNetCheck
-            Kirigami.FormData.label: i18n("Show:")
-            text: i18n("Show Net Speed")
+            Kirigami.FormData.label: i18n("Mostrar:")
+            text: i18n("Mostrar velocidade da rede")
         }
 
         CheckBox {
             id: netInlineCheck
-            Kirigami.FormData.label: i18n("Panel Layout:")
-            text: i18n("Side-by-side download/upload")
+            Kirigami.FormData.label: i18n("Layout do painel:")
+            text: i18n("Download/upload lado a lado")
             enabled: showNetCheck.checked
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo:")
+            Kirigami.FormData.label: i18n("Ícone:")
             spacing: 10
 
             TextField {
@@ -175,7 +175,7 @@ ScrollView {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo Color:")
+            Kirigami.FormData.label: i18n("Cor do ícone:")
             spacing: 10
 
             TextField {
@@ -198,13 +198,13 @@ ScrollView {
 
         TextField {
             id: netFontField
-            Kirigami.FormData.label: i18n("Font:")
+            Kirigami.FormData.label: i18n("Fonte:")
             Layout.preferredWidth: 260
             placeholderText: "JetBrainsMono Nerd Font"
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Font Color:")
+            Kirigami.FormData.label: i18n("Cor da fonte:")
             spacing: 10
 
             TextField {
@@ -226,7 +226,7 @@ ScrollView {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Download Color:")
+            Kirigami.FormData.label: i18n("Cor do download:")
             spacing: 10
 
             TextField {
@@ -248,7 +248,7 @@ ScrollView {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Upload Color:")
+            Kirigami.FormData.label: i18n("Cor do upload:")
             spacing: 10
 
             TextField {
@@ -273,17 +273,17 @@ ScrollView {
         // ─── RAM ───
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("RAM")
+            Kirigami.FormData.label: i18n("Memória RAM")
         }
 
         CheckBox {
             id: showRamCheck
-            Kirigami.FormData.label: i18n("Show:")
-            text: i18n("Show RAM")
+            Kirigami.FormData.label: i18n("Mostrar:")
+            text: i18n("Mostrar memória RAM")
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo:")
+            Kirigami.FormData.label: i18n("Ícone:")
             spacing: 10
 
             TextField {
@@ -303,7 +303,7 @@ ScrollView {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo Color:")
+            Kirigami.FormData.label: i18n("Cor do ícone:")
             spacing: 10
 
             TextField {
@@ -326,13 +326,13 @@ ScrollView {
 
         TextField {
             id: ramFontField
-            Kirigami.FormData.label: i18n("Font:")
+            Kirigami.FormData.label: i18n("Fonte:")
             Layout.preferredWidth: 260
             placeholderText: "JetBrainsMono Nerd Font"
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Font Color:")
+            Kirigami.FormData.label: i18n("Cor da fonte:")
             spacing: 10
 
             TextField {
@@ -361,12 +361,12 @@ ScrollView {
 
         CheckBox {
             id: showCpuCheck
-            Kirigami.FormData.label: i18n("Show:")
-            text: i18n("Show CPU")
+            Kirigami.FormData.label: i18n("Mostrar:")
+            text: i18n("Mostrar CPU")
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo:")
+            Kirigami.FormData.label: i18n("Ícone:")
             spacing: 10
 
             TextField {
@@ -386,7 +386,7 @@ ScrollView {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo Color:")
+            Kirigami.FormData.label: i18n("Cor do ícone:")
             spacing: 10
 
             TextField {
@@ -409,13 +409,13 @@ ScrollView {
 
         TextField {
             id: cpuFontField
-            Kirigami.FormData.label: i18n("Font:")
+            Kirigami.FormData.label: i18n("Fonte:")
             Layout.preferredWidth: 260
             placeholderText: "JetBrainsMono Nerd Font"
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Font Color:")
+            Kirigami.FormData.label: i18n("Cor da fonte:")
             spacing: 10
 
             TextField {
@@ -440,17 +440,17 @@ ScrollView {
         // ─── CPU TEMP ───
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("CPU Temperature")
+            Kirigami.FormData.label: i18n("Temperatura da CPU")
         }
 
         CheckBox {
             id: showCpuTempCheck
-            Kirigami.FormData.label: i18n("Show:")
-            text: i18n("Show CPU Temp")
+            Kirigami.FormData.label: i18n("Mostrar:")
+            text: i18n("Mostrar temperatura da CPU")
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo:")
+            Kirigami.FormData.label: i18n("Ícone:")
             spacing: 10
 
             TextField {
@@ -470,7 +470,7 @@ ScrollView {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo Color:")
+            Kirigami.FormData.label: i18n("Cor do ícone:")
             spacing: 10
 
             TextField {
@@ -493,13 +493,13 @@ ScrollView {
 
         TextField {
             id: cpuTempFontField
-            Kirigami.FormData.label: i18n("Font:")
+            Kirigami.FormData.label: i18n("Fonte:")
             Layout.preferredWidth: 260
             placeholderText: "JetBrainsMono Nerd Font"
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Font Color:")
+            Kirigami.FormData.label: i18n("Cor da fonte:")
             spacing: 10
 
             TextField {
@@ -524,17 +524,17 @@ ScrollView {
         // ─── GPU USAGE ───
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("GPU Memory Usage")
+            Kirigami.FormData.label: i18n("Uso de memória da GPU")
         }
 
         CheckBox {
             id: showGpuUsageCheck
-            Kirigami.FormData.label: i18n("Show:")
-            text: i18n("Show GPU Memory")
+            Kirigami.FormData.label: i18n("Mostrar:")
+            text: i18n("Mostrar memória da GPU")
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo:")
+            Kirigami.FormData.label: i18n("Ícone:")
             spacing: 10
 
             TextField {
@@ -554,7 +554,7 @@ ScrollView {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo Color:")
+            Kirigami.FormData.label: i18n("Cor do ícone:")
             spacing: 10
 
             TextField {
@@ -577,13 +577,13 @@ ScrollView {
 
         TextField {
             id: gpuUsageFontField
-            Kirigami.FormData.label: i18n("Font:")
+            Kirigami.FormData.label: i18n("Fonte:")
             Layout.preferredWidth: 260
             placeholderText: "JetBrainsMono Nerd Font"
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Font Color:")
+            Kirigami.FormData.label: i18n("Cor da fonte:")
             spacing: 10
 
             TextField {
@@ -607,18 +607,18 @@ ScrollView {
         // ─── GPU TEMP ───
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("GPU Temperature")
+            Kirigami.FormData.label: i18n("Temperatura da GPU")
         }
 
         CheckBox {
             id: showGpuTempCheck
-            Kirigami.FormData.label: i18n("Show:")
-            text: i18n("Show GPU Temp")
+            Kirigami.FormData.label: i18n("Mostrar:")
+            text: i18n("Mostrar temperatura da GPU")
         }
 
         ComboBox {
             id: gpuTypeCombo
-            Kirigami.FormData.label: i18n("GPU Type:")
+            Kirigami.FormData.label: i18n("Tipo de GPU:")
             model: ["NVIDIA", "AMD", "Intel"]
             currentIndex: scrollRoot.cfg_gpuType
             onCurrentIndexChanged: scrollRoot.cfg_gpuType = currentIndex
@@ -626,7 +626,7 @@ ScrollView {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo:")
+            Kirigami.FormData.label: i18n("Ícone:")
             spacing: 10
 
             TextField {
@@ -646,7 +646,7 @@ ScrollView {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo Color:")
+            Kirigami.FormData.label: i18n("Cor do ícone:")
             spacing: 10
 
             TextField {
@@ -669,13 +669,13 @@ ScrollView {
 
         TextField {
             id: gpuTempFontField
-            Kirigami.FormData.label: i18n("Font:")
+            Kirigami.FormData.label: i18n("Fonte:")
             Layout.preferredWidth: 260
             placeholderText: "JetBrainsMono Nerd Font"
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Font Color:")
+            Kirigami.FormData.label: i18n("Cor da fonte:")
             spacing: 10
 
             TextField {
@@ -699,17 +699,17 @@ ScrollView {
         // ─── BATTERY ───
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("Battery")
+            Kirigami.FormData.label: i18n("Bateria")
         }
 
         CheckBox {
             id: showBatteryCheck
-            Kirigami.FormData.label: i18n("Show:")
-            text: i18n("Show Battery %")
+            Kirigami.FormData.label: i18n("Mostrar:")
+            text: i18n("Mostrar % da bateria")
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo:")
+            Kirigami.FormData.label: i18n("Ícone:")
             spacing: 10
 
             TextField {
@@ -729,7 +729,7 @@ ScrollView {
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Logo Color:")
+            Kirigami.FormData.label: i18n("Cor do ícone:")
             spacing: 10
 
             TextField {
@@ -752,13 +752,13 @@ ScrollView {
 
         TextField {
             id: batteryFontField
-            Kirigami.FormData.label: i18n("Font:")
+            Kirigami.FormData.label: i18n("Fonte:")
             Layout.preferredWidth: 260
             placeholderText: "JetBrainsMono Nerd Font"
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Font Color:")
+            Kirigami.FormData.label: i18n("Cor da fonte:")
             spacing: 10
 
             TextField {
@@ -782,12 +782,12 @@ ScrollView {
         // ─── RESET TO DEFAULT ───
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("Reset")
+            Kirigami.FormData.label: i18n("Redefinir")
         }
 
         Button {
-            Kirigami.FormData.label: i18n("Action:")
-            text: i18n("Reset All Settings to Default")
+            Kirigami.FormData.label: i18n("Ação:")
+            text: i18n("Redefinir todas as configurações")
             icon.name: "edit-undo"
             onClicked: {
 
@@ -853,11 +853,11 @@ ScrollView {
         // ─── PRESETS ───
         Kirigami.Separator {
             Kirigami.FormData.isSection: true
-            Kirigami.FormData.label: i18n("Quick Presets")
+            Kirigami.FormData.label: i18n("Predefinições rápidas")
         }
 
         RowLayout {
-            Kirigami.FormData.label: i18n("Theme:")
+            Kirigami.FormData.label: i18n("Tema:")
             spacing: 8
 
             Button {
@@ -946,8 +946,8 @@ ScrollView {
         }
 
         Label {
-            Kirigami.FormData.label: i18n("Tip:")
-            text: i18n("Use Nerd Font glyphs for logos.\nRecommended: JetBrainsMono Nerd Font.\n\nGPU: Select your GPU type for correct temp/memory reading.\nNVIDIA requires nvidia-smi.\nAMD/Intel uses sysfs sensors.")
+            Kirigami.FormData.label: i18n("Dica:")
+            text: i18n("Use glifos de Nerd Font nos ícones.\nRecomendado: JetBrainsMono Nerd Font.\n\nGPU: selecione o tipo de GPU para leitura correta de temperatura/memória.\nNVIDIA requer nvidia-smi.\nAMD/Intel usa sensores sysfs.")
             opacity: 0.65
             wrapMode: Text.WordWrap
         }

@@ -95,7 +95,7 @@ PlasmoidItem {
 
     preferredRepresentation: compactRepresentation
 
-    // ─── Persistent Settings (ডেটা সেভ করার জন্য) ─
+    // ─── Configurações persistentes (para salvar dados) ─
     Settings {
         id: trafficSettings
         category: "TrafficStats"
@@ -128,7 +128,7 @@ PlasmoidItem {
         trafficSettings.savedMonthDown = root.trafficMonthDown
         trafficSettings.savedMonthUp = root.trafficMonthUp
         
-        // Settings অটোমেটিক সেভ হয়, তবে নিশ্চিত হতে sync() কল করতে পারেন
+        // As configurações são salvas automaticamente; chame sync() para garantir
         trafficSettings.sync()
     }
 
@@ -617,7 +617,7 @@ PlasmoidItem {
                     var pctVal = parseFloat(usePct)
                     if (!isNaN(pctVal)) {
                         root.diskUsagePercent = pctVal
-                        root.diskUsageText = p[2] + " / " + p[1] + " used"
+                        root.diskUsageText = p[2] + " / " + p[1] + " usado"
                     }
                     break
                 }
@@ -636,14 +636,14 @@ PlasmoidItem {
 
     // ─── Load traffic stats from Settings on startup ──
     Component.onCompleted: {
-        // Settings থেকে ডেটা লোড করুন
+        // Carregue os dados das configurações salvas
         var nowDay = root.todayKey()
         var nowMonth = root.monthKey()
         
         root.currentDayKey = nowDay
         root.currentMonthKey = nowMonth
         
-        // যদি সেভ করা দিন আজকের দিন হয়, তবে ডেটা লোড করুন
+        // Se o dia salvo for hoje, carregue os dados
         if (trafficSettings.savedDayKey === nowDay) {
             root.trafficTodayDown = trafficSettings.savedTodayDown
             root.trafficTodayUp = trafficSettings.savedTodayUp
@@ -652,7 +652,7 @@ PlasmoidItem {
             root.trafficTodayUp = 0
         }
         
-        // যদি সেভ করা মাস এই মাস হয়, তবে ডেটা লোড করুন
+        // Se o mês salvo for este mês, carregue os dados
         if (trafficSettings.savedMonthKey === nowMonth) {
             root.trafficMonthDown = trafficSettings.savedMonthDown
             root.trafficMonthUp = trafficSettings.savedMonthUp

@@ -4,10 +4,12 @@ set -e
 
 PLASMOID_ID="SiyamX7.system.monitor.meteoris"
 
-mkdir -p ~/.local/share/plasma/plasmoids
+DEST=~/.local/share/plasma/plasmoids/$PLASMOID_ID
 
-cp -r . ~/.local/share/plasma/plasmoids/$PLASMOID_ID
+mkdir -p "$DEST"
+
+find . -maxdepth 1 -mindepth 1 ! -name '.git' -exec cp -r {} "$DEST/" \;
 
 echo ""
-echo "✓ Meteoris installed successfully."
-echo "Add it from KDE Plasma Widgets."
+echo "✓ Meteoris instalado com sucesso."
+echo "Adicione-o em Widgets do Plasma do KDE."

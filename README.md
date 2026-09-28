@@ -2,30 +2,31 @@
 
 # 🌌 Meteoris
 
-### A modern, lightweight system monitor widget for KDE Plasma 6
+### Monitor de sistema moderno e leve para o KDE Plasma 6
 
-Real-time network, CPU, RAM, temperatures, GPU & battery — wrapped in a
-clean, fully customizable panel widget that blends naturally into your desktop.
+Rede, CPU, RAM, temperaturas, GPU e bateria em tempo real — tudo em um
+widget de painel limpo e totalmente personalizável que se integra
+naturalmente ao seu desktop.
 
 <br>
 
-![Visitors](https://visitor-badge.laobi.icu/badge?page_id=SiyamX7.meteoris-kde-widget)
+![Visitantes](https://visitor-badge.laobi.icu/badge?page_id=LucianoSkx.meteoris-kde-widget-br)
 ![KDE Plasma](https://img.shields.io/badge/KDE%20Plasma-6-3daee9?style=flat-square&logo=kde&logoColor=white)
 ![Qt](https://img.shields.io/badge/Qt-6-41cd52?style=flat-square&logo=qt&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-Supported-orange?style=flat-square&logo=linux&logoColor=white)
-![QML](https://img.shields.io/badge/Language-QML-41cd52?style=flat-square)
-![License](https://img.shields.io/github/license/SiyamX7/meteoris-kde-widget?style=flat-square)
+![Linux](https://img.shields.io/badge/Linux-Suportado-orange?style=flat-square&logo=linux&logoColor=white)
+![QML](https://img.shields.io/badge/Linguagem-QML-41cd52?style=flat-square)
+![Licença](https://img.shields.io/github/license/LucianoSkx/meteoris-kde-widget-br?style=flat-square)
 
 <br>
 
-<img src="preview/home.png" alt="Meteoris on desktop" width="100%">
+<img src="preview/home.png" alt="Meteoris no desktop" width="100%">
 
 <br>
 
 <table align="center">
   <tr>
-    <td align="center"><b>Stacked layout</b><br><img src="preview/comp.png" alt="compact"></td>
-    <td align="center"><b>Inline layout</b><br><img src="preview/extended.png" alt="extended"></td>
+    <td align="center"><b>Layout empilhado</b><br><img src="preview/comp.png" alt="compacto"></td>
+    <td align="center"><b>Layout inline</b><br><img src="preview/extended.png" alt="estendido"></td>
   </tr>
 </table>
 
@@ -34,80 +35,80 @@ clean, fully customizable panel widget that blends naturally into your desktop.
 <br>
 
 <details open>
-<summary align="center"><b>📑 Table of Contents</b></summary>
+<summary align="center"><b>📑 Sumário</b></summary>
 <br>
 
 <div align="center">
 
-[About](#-about) • [Features](#-features) • [Quick Stats Popup](#-quick-stats-popup) •
-[Previews](#-previews) • [Customization](#-customization) • [Installation](#-installation) •
-[Compatibility](#-compatibility) • [Contributing](#-contributing) • [License](#-license)
+[Sobre](#-sobre) • [Recursos](#-recursos) • [Popup de estatísticas rápidas](#-popup-de-estatísticas-rápidas) •
+[Pré-visualizações](#-pré-visualizações) • [Personalização](#-personalização) • [Instalação](#-instalação) •
+[Compatibilidade](#-compatibilidade) • [Contribuindo](#-contribuindo) • [Licença](#-licença)
 
 </div>
 </details>
 
 <br>
 
-## 🪐 About
+## 🪐 Sobre
 
-Meteoris is a KDE Plasma widget focused on delivering essential system
-information in a clean and customizable format.
+O Meteoris é um widget do KDE Plasma focado em entregar as informações
+essenciais do sistema de forma limpa e personalizável.
 
-Instead of trying to be a heavy, full-blown system monitor, it surfaces the
-information most users actually care about — **directly from the panel**, with
-minimal overhead and zero external dependencies.
+Em vez de tentar ser um monitor de sistema pesado e completo, ele mostra
+o que a maioria dos usuários realmente quer saber — **direto do painel**,
+com sobrecarga mínima e zero dependências externas.
 
-> Stay informative. Stay lightweight. Stay visually consistent.
+> Informativo. Leve. Visualmente consistente.
 
-Everything is read straight from the Linux kernel (`/proc`, `/sys`), so it works
-out of the box on **any** distribution — no extra packages, no daemons.
+Tudo é lido direto do kernel do Linux (`/proc`, `/sys`), então funciona
+em **qualquer** distribuição — sem pacotes extras, sem daemons.
 
 <br>
 
-## ✨ Features
+## ✨ Recursos
 
 <table>
 <tr>
 <td width="50%">
 
-### 🌐 Network Speed
-- Real-time download / upload
-- Stacked **or** side-by-side layout
-- Custom icon, font & colors
+### 🌐 Velocidade da rede
+- Download / upload em tempo real
+- Layout empilhado **ou** lado a lado
+- Ícone, fonte e cores personalizáveis
 
-### 🧠 Memory Usage
-- Live RAM usage at a glance
-- Fully themeable icon & text
+### 🧠 Uso de memória
+- Uso de RAM em tempo real num relance
+- Ícone e texto totalmente tematizáveis
 
-### ⚙️ CPU Usage
-- Smooth live percentage
-- Minimal polling overhead
+### ⚙️ Uso da CPU
+- Porcentagem ao vivo e suave
+- Sobrecarga mínima de leitura
 
-### 🌡️ CPU Temperature
-- Reads thermal zones directly
-- Color-coded warnings
+### 🌡️ Temperatura da CPU
+- Lê as zonas térmicas diretamente
+- Avisos com codificação por cor
 
 </td>
 <td width="50%">
 
-### 🎮 GPU Monitoring
-- GPU **memory** usage
-- GPU **temperature**
-- Supports **NVIDIA / AMD / Intel**
+### 🎮 Monitoramento de GPU
+- Uso de **memória** da GPU
+- **Temperatura** da GPU
+- Suporta **NVIDIA / AMD / Intel**
 
-### 🔋 Battery
-- Percentage + status
-- Auto-hides on desktops
+### 🔋 Bateria
+- Porcentagem + status
+- Se oculta automaticamente em desktops
 
-### 🖱️ Hover Quick Stats
-- Today / This-month traffic
-- CPU frequency & disk usage
-- **Persists across reboots**
+### 🖱️ Estatísticas rápidas no hover
+- Tráfego do dia / do mês
+- Frequência da CPU e uso do disco
+- **Persiste entre reinicializações**
 
-### 🎨 Deep Customization
-- Per-module visibility & order
-- Icons, colors, fonts, spacing
-- One-click theme presets
+### 🎨 Personalização profunda
+- Visibilidade e ordem de cada módulo
+- Ícones, cores, fontes, espaçamentos
+- Predefinições de tema em um clique
 
 </td>
 </tr>
@@ -115,74 +116,76 @@ out of the box on **any** distribution — no extra packages, no daemons.
 
 <br>
 
-## 🖱️ Quick Stats Popup
+## 🖱️ Popup de estatísticas rápidas
 
-Hover over the panel widget to reveal a beautifully themed popup — no click
-needed. It shows the deeper numbers you don't want cluttering the panel:
+Passe o mouse sobre o widget do painel para revelar um popup temático —
+sem precisar clicar. Ele mostra os números mais detalhados, que não
+poluiriam o painel:
 
 <div align="center">
-<img src="preview/hover.png" alt="Quick Stats hover popup" width="420">
+<img src="preview/hover.png" alt="Popup de estatísticas rápidas" width="420">
 </div>
 
-- 📅 **Today** — total upload + download since midnight
-- 🗓️ **This Month** — total upload + download this month
-- ⚡ **CPU Frequency** — live average clock speed
-- 💾 **Hard Disk** — usage with a progress bar
+- 📅 **Hoje** — total de upload + download desde a meia-noite
+- 🗓️ **Este mês** — total de upload + download neste mês
+- ⚡ **Frequência da CPU** — velocidade média atual
+- 💾 **Disco rígido** — uso com barra de progresso
 
-> Traffic totals are cached to `~/.cache/meteoris_traffic.conf`, so your
-> daily / monthly counters **survive reboots and Plasma restarts**, and
-> auto-reset on a new day / month.
+> Os totais de tráfego ficam em `~/.cache/meteoris_traffic.conf`, então
+> os contadores diários/mensais **sobrevivem a reinicializações e
+> reinícios do Plasma**, e se resetam sozinhos em um novo dia/mês.
 
 <br>
 
-## 🖼️ Previews
+## 🖼️ Pré-visualizações
 
-### Panel layouts
+### Layouts do painel
 
 <table>
 <tr>
-<td align="center" width="50%"><sub><b>Stacked network</b></sub><br><img src="preview/comp.png" alt="stacked"></td>
-<td align="center" width="50%"><sub><b>Inline network</b></sub><br><img src="preview/extended.png" alt="inline"></td>
+<td align="center" width="50%"><sub><b>Rede empilhada</b></sub><br><img src="preview/comp.png" alt="empilhado"></td>
+<td align="center" width="50%"><sub><b>Rede inline</b></sub><br><img src="preview/extended.png" alt="inline"></td>
 </tr>
 </table>
 
-### On the desktop
+### No desktop
 
-<img src="preview/home.png" alt="Meteoris on desktop" width="100%">
+<img src="preview/home.png" alt="Meteoris no desktop" width="100%">
 
 <br>
 
-## 🎨 Customization
+## 🎨 Personalização
 
-Every module is independently toggleable and themeable. Tweak icons, colors,
-fonts, the refresh rate, the separator spacing, and the panel layout — or just
-apply a preset and go.
+Cada módulo pode ser ativado/desativado e tematizado de forma
+independente. Ajuste ícones, cores, fontes, taxa de atualização,
+espaçamento dos separadores e o layout do painel — ou aplique uma
+predefinição e pronto.
 
 <div align="center">
-<img src="preview/settings.png" alt="Meteoris settings" width="520">
+<img src="preview/settings.png" alt="Configurações do Meteoris" width="520">
 </div>
 
-**Built-in theme presets:** `Catppuccin` · `Tokyo Night` · `Nord`
+**Predefinições de tema incluídas:** `Catppuccin` · `Tokyo Night` · `Nord`
 
-Plus a **Reset to Default** button to start fresh anytime.
+Mais um botão de **Redefinir tudo** para começar do zero a qualquer momento.
 
 <br>
 
-## 📦 Installation
+## 📦 Instalação
 
-### ⚡ Quick install
+### ⚡ Instalação rápida
 
 ```bash
-git clone https://github.com/SiyamX7/meteoris-kde-widget.git
-cd meteoris-kde-widget
+git clone https://github.com/LucianoSkx/meteoris-kde-widget-br.git
+cd meteoris-kde-widget-br
 
 chmod +x install.sh
 ./install.sh
 ```
 
-Then: **Desktop → Add Widgets → Meteoris**
+Depois: **Área de trabalho → Adicionar widgets → Meteoris**
 
-### 🛠️ Manual install
+### 🛠️ Instalação manual
 
 ```bash
 mkdir -p ~/.local/share/plasma/plasmoids
@@ -191,7 +194,7 @@ cp -r . \
   ~/.local/share/plasma/plasmoids/SiyamX7.system.monitor.meteoris
 ```
 
-Restart Plasma:
+Reinicie o Plasma:
 
 ```bash
 plasmashell --replace &
@@ -199,7 +202,7 @@ plasmashell --replace &
 
 <br>
 
-## 🗂️ Project Structure
+## 🗂️ Estrutura do projeto
 
 ```text
 .
@@ -222,53 +225,54 @@ plasmashell --replace &
 
 <br>
 
-## 🧩 Compatibility
+## 🧩 Compatibilidade
 
-| Component | Supported | Note |
+| Componente | Suportado | Observação |
 |-----------|:---------:|------|
 | KDE Plasma 6 | ✅ | |
 | Qt 6 | ✅ | |
 | Wayland | ✅ | |
 | X11 | ✅ | |
-| Any Linux distro | ✅ | Net / CPU / RAM / Disk use kernel interfaces |
-| NVIDIA GPU | ✅ | Requires `nvidia-smi` |
-| AMD / Intel GPU | ✅ | Uses `sysfs` sensors |
+| Qualquer distro Linux | ✅ | Rede / CPU / RAM / disco usam as interfaces do kernel |
+| GPU NVIDIA | ✅ | Requer `nvidia-smi` |
+| GPU AMD / Intel | ✅ | Usa sensores `sysfs` |
 
 <br>
 
-## 🤝 Contributing
+## 🤝 Contribuindo
 
-Suggestions, bug reports and pull requests are always welcome.
+Sugestões, relatos de bugs e pull requests são sempre bem-vindos.
 
-Found a bug or have an idea? [Open an issue](https://github.com/SiyamX7/meteoris-kde-widget/issues)
-— or better, send a PR. 🚀
+Encontrou um bug ou tem uma ideia? [Abra uma issue](https://github.com/LucianoSkx/meteoris-kde-widget-br/issues)
+— ou melhor, envie um PR. 🚀
 
 <br>
 
-## ⭐ Star History
+## ⭐ Histórico de estrelas
 
 <div align="center">
-<a href="https://star-history.com/#SiyamX7/meteoris-kde-widget&Date">
-  <img src="https://api.star-history.com/svg?repos=SiyamX7/meteoris-kde-widget&type=Date" alt="Star History Chart" width="70%">
+<a href="https://star-history.com/#LucianoSkx/meteoris-kde-widget-br&Date">
+  <img src="https://api.star-history.com/svg?repos=LucianoSkx/meteoris-kde-widget-br&type=Date" alt="Gráfico de histórico de estrelas" width="70%">
 </a>
 </div>
 
 <br>
 
-## 📜 License
+## 📜 Licença
 
-Distributed under the **GPL-3.0** License. See the [LICENSE](LICENSE) file for details.
+Distribuído sob a licença **GPL-3.0**. Veja o arquivo [LICENSE](LICENSE) para detalhes.
 
 <br>
 
 <div align="center">
 
-<img src="https://contrib.rocks/image?repo=SiyamX7/meteoris-kde-widget" alt="contributors">
+Fork de [SiyamX7/meteoris-kde-widget](https://github.com/SiyamX7/meteoris-kde-widget) —
+créditos originais ao **Mohammad Siyam (SiyamX7)**.
 
-<br>
+Tradução para o português do Brasil.
 
-Made with ☕ and too much time spent tweaking KDE panels.
+Feito com ☕ e tempo demais ajustando painéis do KDE.
 
-**SiyamX7**
+**LucianoSkx**
 
 </div>

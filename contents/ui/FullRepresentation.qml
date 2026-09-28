@@ -88,6 +88,15 @@ Item {
         return mb.toFixed(0) + " MB"
     }
 
+    function batteryStatusLabel(s) {
+        if (s === "Charging") return "⚡ Carregando"
+        if (s === "Discharging") return "🔋 Descarregando"
+        if (s === "Full") return "🔋 Completa"
+        if (s === "Not charging") return "🔌 Não carregando"
+        if (s === "Unknown") return "🔌 Desconhecido"
+        return "🔌 " + s
+    }
+
     Rectangle {
         anchors.fill: parent
         radius: 16
@@ -132,7 +141,7 @@ Item {
                 spacing: 8
 
                 Text {
-                    text: "Display Options"
+                    text: "Opções de exibição"
                     font.pixelSize: 13; font.bold: true; color: "#f9e2af"
                     font.family: full.safeFont(full.netFontFamily)
                 }
@@ -141,7 +150,7 @@ Item {
                     spacing: 14
 
                     Switch {
-                        text: "Net"
+                        text: "Rede"
                         checked: full.showNet
                         onToggled: Plasmoid.configuration.showNet = checked
                     }
@@ -171,7 +180,7 @@ Item {
                         onToggled: Plasmoid.configuration.showGpuTemp = checked
                     }
                     Switch {
-                        text: "GPU Mem"
+                        text: "Mem. GPU"
                         checked: full.showGpuUsage
                         onToggled: Plasmoid.configuration.showGpuUsage = checked
                     }
@@ -181,7 +190,7 @@ Item {
                     spacing: 14
 
                     Switch {
-                        text: "Battery"
+                        text: "Bateria"
                         checked: full.showBattery
                         onToggled: Plasmoid.configuration.showBattery = checked
                     }
@@ -192,12 +201,12 @@ Item {
                     spacing: 10
 
                     Text {
-                        text: "Net panel layout"; font.pixelSize: 11; color: "#a6adc8"
+                        text: "Layout da rede no painel"; font.pixelSize: 11; color: "#a6adc8"
                         font.family: full.safeFont(full.netFontFamily)
                     }
                     Item { Layout.fillWidth: true }
                     Text {
-                        text: inlineSwitch.checked ? "Side-by-side" : "Stacked"
+                        text: inlineSwitch.checked ? "Lado a lado" : "Empilhado"
                         font.pixelSize: 11
                         color: inlineSwitch.checked ? full.netIconColor : "#6c7086"
                         font.family: full.safeFont(full.netFontFamily)
@@ -233,7 +242,7 @@ Item {
                 RowLayout {
                     spacing: 10
                     Text { text: full.netIcon; font.family: full.safeFont(full.netFontFamily); font.pixelSize: 22; color: full.netIconColor }
-                    Text { text: "Network"; font.pixelSize: 14; font.bold: true; color: full.netIconColor; font.family: full.safeFont(full.netFontFamily) }
+                    Text { text: "Rede"; font.pixelSize: 14; font.bold: true; color: full.netIconColor; font.family: full.safeFont(full.netFontFamily) }
                 }
 
                 RowLayout {
@@ -292,9 +301,9 @@ Item {
 
                 RowLayout {
                     spacing: 6
-                    Text { text: full.ramPercent.toFixed(1) + "% used"; font.pixelSize: 10; color: "#6c7086"; font.family: full.safeFont(full.ramFontFamily) }
+                    Text { text: full.ramPercent.toFixed(1) + "% em uso"; font.pixelSize: 10; color: "#6c7086"; font.family: full.safeFont(full.ramFontFamily) }
                     Item { Layout.fillWidth: true }
-                    Text { text: (full.ramTotalGB - full.ramUsedGB).toFixed(1) + " GB free"; font.pixelSize: 10; color: "#585b70"; font.family: full.safeFont(full.ramFontFamily) }
+                    Text { text: (full.ramTotalGB - full.ramUsedGB).toFixed(1) + " GB livres"; font.pixelSize: 10; color: "#585b70"; font.family: full.safeFont(full.ramFontFamily) }
                 }
             }
         }
@@ -359,7 +368,7 @@ Item {
                 RowLayout {
                     spacing: 10
                     Text { text: full.cpuTempIcon; font.family: full.safeFont(full.cpuTempFontFamily); font.pixelSize: 20; color: full.cpuTempIconColor }
-                    Text { text: "CPU Temp"; font.pixelSize: 14; font.bold: true; color: full.cpuTempIconColor; font.family: full.safeFont(full.cpuTempFontFamily) }
+                    Text { text: "Temp. da CPU"; font.pixelSize: 14; font.bold: true; color: full.cpuTempIconColor; font.family: full.safeFont(full.cpuTempFontFamily) }
                     Item { Layout.fillWidth: true }
                     Text { text: full.cpuTemp.toFixed(0) + "°C"; font.pixelSize: 18; font.bold: true; color: full.cpuTempFontColor; font.family: full.safeFont(full.cpuTempFontFamily) }
                 }
@@ -399,7 +408,7 @@ Item {
                 RowLayout {
                     spacing: 10
                     Text { text: full.gpuUsageIcon; font.family: full.safeFont(full.gpuUsageFontFamily); font.pixelSize: 20; color: full.gpuUsageIconColor }
-                    Text { text: "GPU Memory"; font.pixelSize: 14; font.bold: true; color: full.gpuUsageIconColor; font.family: full.safeFont(full.gpuUsageFontFamily) }
+                    Text { text: "Memória da GPU"; font.pixelSize: 14; font.bold: true; color: full.gpuUsageIconColor; font.family: full.safeFont(full.gpuUsageFontFamily) }
                     Item { Layout.fillWidth: true }
                     Text {
                         text: full.formatGpuMem(full.gpuMemUsed) + " / " + full.formatGpuMem(full.gpuMemTotal)
@@ -420,12 +429,12 @@ Item {
                 RowLayout {
                     spacing: 6
                     Text {
-                        text: (full.gpuMemTotal > 0 ? (full.gpuMemUsed / full.gpuMemTotal * 100).toFixed(1) : "0.0") + "% used"
+                        text: (full.gpuMemTotal > 0 ? (full.gpuMemUsed / full.gpuMemTotal * 100).toFixed(1) : "0.0") + "% em uso"
                         font.pixelSize: 10; color: "#6c7086"; font.family: full.safeFont(full.gpuUsageFontFamily)
                     }
                     Item { Layout.fillWidth: true }
                     Text {
-                        text: full.formatGpuMem(Math.max(0, full.gpuMemTotal - full.gpuMemUsed)) + " free"
+                        text: full.formatGpuMem(Math.max(0, full.gpuMemTotal - full.gpuMemUsed)) + " livre"
                         font.pixelSize: 10; color: "#585b70"; font.family: full.safeFont(full.gpuUsageFontFamily)
                     }
                 }
@@ -454,7 +463,7 @@ Item {
                 RowLayout {
                     spacing: 10
                     Text { text: full.gpuTempIcon; font.family: full.safeFont(full.gpuTempFontFamily); font.pixelSize: 20; color: full.gpuTempIconColor }
-                    Text { text: "GPU Temp"; font.pixelSize: 14; font.bold: true; color: full.gpuTempIconColor; font.family: full.safeFont(full.gpuTempFontFamily) }
+                    Text { text: "Temp. da GPU"; font.pixelSize: 14; font.bold: true; color: full.gpuTempIconColor; font.family: full.safeFont(full.gpuTempFontFamily) }
                     Item { Layout.fillWidth: true }
                     Text { text: full.gpuTemp.toFixed(0) + "°C"; font.pixelSize: 18; font.bold: true; color: full.gpuTempFontColor; font.family: full.safeFont(full.gpuTempFontFamily) }
                 }
@@ -493,7 +502,7 @@ Item {
                 RowLayout {
                     spacing: 10
                     Text { text: full.batteryIcon; font.family: full.safeFont(full.batteryFontFamily); font.pixelSize: 20; color: full.batteryIconColor }
-                    Text { text: "Battery"; font.pixelSize: 14; font.bold: true; color: full.batteryIconColor; font.family: full.safeFont(full.batteryFontFamily) }
+                    Text { text: "Bateria"; font.pixelSize: 14; font.bold: true; color: full.batteryIconColor; font.family: full.safeFont(full.batteryFontFamily) }
                     Item { Layout.fillWidth: true }
                     Text { text: full.batteryPercent.toFixed(0) + "%"; font.pixelSize: 18; font.bold: true; color: full.batteryFontColor; font.family: full.safeFont(full.batteryFontFamily) }
                 }
@@ -511,12 +520,12 @@ Item {
                 RowLayout {
                     spacing: 6
                     Text {
-                        text: full.batteryStatus === "Charging" ? "⚡ Charging" : full.batteryStatus === "Discharging" ? "🔋 Discharging" : "🔌 " + full.batteryStatus
+                        text: full.batteryStatusLabel(full.batteryStatus)
                         font.pixelSize: 10; color: "#6c7086"; font.family: full.safeFont(full.batteryFontFamily)
                     }
                     Item { Layout.fillWidth: true }
                     Text {
-                        text: full.batteryPercent.toFixed(0) + "% remaining"
+                        text: full.batteryPercent.toFixed(0) + "% restante"
                         font.pixelSize: 10; color: "#585b70"; font.family: full.safeFont(full.batteryFontFamily)
                     }
                 }
@@ -529,7 +538,7 @@ Item {
             spacing: 8
             Text { text: "☄"; font.pixelSize: 11; color: "#585b70" }
             Text {
-                text: "Meteoris v2.2 by SiyamX7"
+                text: "Meteoris v2.2 por SiyamX7"
                 font.pixelSize: 10; color: "#585b70"
                 font.family: full.safeFont(full.netFontFamily)
                 font.italic: true

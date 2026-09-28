@@ -456,7 +456,7 @@ MouseArea {
                     spacing: 8
                     Text { text: "☄"; font.pixelSize: 14; color: "#f9e2af" }
                     Text {
-                        text: "Quick Stats"
+                        text: "Estatísticas rápidas"
                         font.pixelSize: 12; font.bold: true
                         font.family: compact.safeFont(compact.netFontFamily)
                         color: "#cdd6f4"; font.letterSpacing: 0.5
@@ -487,7 +487,7 @@ MouseArea {
                             spacing: 8
                             Text { text: "󰃭"; font.family: compact.safeFont(compact.netFontFamily); font.pixelSize: 13; color: compact.netIconColor }
                             Text {
-                                text: "Today"; font.pixelSize: 11; font.bold: true; color: compact.netIconColor
+                                text: "Hoje"; font.pixelSize: 11; font.bold: true; color: compact.netIconColor
                                 font.family: compact.safeFont(compact.netFontFamily)
                             }
                         }
@@ -496,7 +496,7 @@ MouseArea {
                             spacing: 8
                             Text { text: "▼"; color: compact.netDownColor; font.pixelSize: 9 }
                             Text {
-                                text: "Down"; font.pixelSize: 10; color: "#a6adc8"
+                                text: "Download"; font.pixelSize: 10; color: "#a6adc8"
                                 font.family: compact.safeFont(compact.netFontFamily)
                             }
                             Item { Layout.fillWidth: true }
@@ -511,7 +511,7 @@ MouseArea {
                             spacing: 8
                             Text { text: "▲"; color: compact.netUpColor; font.pixelSize: 9 }
                             Text {
-                                text: "Up"; font.pixelSize: 10; color: "#a6adc8"
+                                text: "Upload"; font.pixelSize: 10; color: "#a6adc8"
                                 font.family: compact.safeFont(compact.netFontFamily)
                             }
                             Item { Layout.fillWidth: true }
@@ -546,7 +546,7 @@ MouseArea {
                             spacing: 8
                             Text { text: "󰸗"; font.family: compact.safeFont(compact.netFontFamily); font.pixelSize: 13; color: "#cba6f7" }
                             Text {
-                                text: "This Month"; font.pixelSize: 11; font.bold: true; color: "#cba6f7"
+                                text: "Este mês"; font.pixelSize: 11; font.bold: true; color: "#cba6f7"
                                 font.family: compact.safeFont(compact.netFontFamily)
                             }
                         }
@@ -555,7 +555,7 @@ MouseArea {
                             spacing: 8
                             Text { text: "▼"; color: compact.netDownColor; font.pixelSize: 9 }
                             Text {
-                                text: "Down"; font.pixelSize: 10; color: "#a6adc8"
+                                text: "Download"; font.pixelSize: 10; color: "#a6adc8"
                                 font.family: compact.safeFont(compact.netFontFamily)
                             }
                             Item { Layout.fillWidth: true }
@@ -570,7 +570,7 @@ MouseArea {
                             spacing: 8
                             Text { text: "▲"; color: compact.netUpColor; font.pixelSize: 9 }
                             Text {
-                                text: "Up"; font.pixelSize: 10; color: "#a6adc8"
+                                text: "Upload"; font.pixelSize: 10; color: "#a6adc8"
                                 font.family: compact.safeFont(compact.netFontFamily)
                             }
                             Item { Layout.fillWidth: true }
@@ -606,7 +606,7 @@ MouseArea {
                             font.pixelSize: 14; color: compact.cpuIconColor
                         }
                         Text {
-                            text: "CPU Freq"; font.pixelSize: 11; font.bold: true; color: compact.cpuIconColor
+                            text: "Freq. da CPU"; font.pixelSize: 11; font.bold: true; color: compact.cpuIconColor
                             font.family: compact.safeFont(compact.cpuFontFamily)
                         }
                         Item { Layout.fillWidth: true }
@@ -643,7 +643,7 @@ MouseArea {
                                 font.pixelSize: 14; color: "#94e2d5"
                             }
                             Text {
-                                text: "Hard Disk"; font.pixelSize: 11; font.bold: true; color: "#94e2d5"
+                                text: "Disco rígido"; font.pixelSize: 11; font.bold: true; color: "#94e2d5"
                                 font.family: compact.safeFont(compact.ramFontFamily)
                             }
                             Item { Layout.fillWidth: true }

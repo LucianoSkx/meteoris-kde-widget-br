@@ -93,7 +93,7 @@ MouseArea {
         if (compact.showCpuTemp) arr.push("cpuTemp")
         if (compact.showRam) arr.push("ram")
         if (compact.showGpuTemp) arr.push("gpuTemp")
-        if (compact.showGpuUsage) arr.push("gpuUsage")
+        if (compact.showGpuUsage && compact.gpuMemTotal > 0) arr.push("gpuUsage")
         if (compact.showBattery && compact.batteryAvailable) arr.push("battery")
         return arr
     }
@@ -344,7 +344,7 @@ MouseArea {
         // ─── GPU Memory Usage ───
         RowLayout {
             spacing: 5
-            visible: compact.showGpuUsage
+            visible: compact.showGpuUsage && compact.gpuMemTotal > 0
 
             Text {
                 text: compact.gpuUsageIcon

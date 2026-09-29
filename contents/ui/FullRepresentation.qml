@@ -392,7 +392,7 @@ Item {
             implicitHeight: gpuMemCol.implicitHeight + 28
             radius: 14; color: "#181825"
             border.color: "#313244"; border.width: 1
-            visible: full.showGpuUsage
+            visible: full.showGpuUsage && full.gpuMemTotal > 0
 
             Rectangle {
                 width: 3; radius: 2

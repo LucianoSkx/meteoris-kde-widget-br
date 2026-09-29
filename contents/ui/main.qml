@@ -471,9 +471,9 @@ PlasmoidItem {
         }
     }
 
-    // ─── GPU (AMD) memory ───
+    // ─── GPU (AMD/Intel) VRAM via sysfs ───
     P5Support.DataSource {
-        id: gpuAmdMemSource
+        id: gpuVramSource
         engine: "executable"
         connectedSources: []
 
@@ -481,22 +481,12 @@ PlasmoidItem {
             var stdout = data["stdout"]
             if (!stdout) { disconnectSource(source); return }
 
-            var lines = stdout.trim().split("\n")
-            for (var i = 0; i < lines.length; i++) {
-                var line = lines[i].trim()
-                if (line.indexOf("vram") !== -1 || line.indexOf("VRAM") !== -1) {
-                    // try to parse "used: XXX MiB" pattern
-                    var usedMatch = line.match(/(\d+)\s*(MiB|MB|mib)/i)
-                    if (usedMatch) {
-                        root.gpuMemUsed = parseFloat(usedMatch[1])
-                    }
-                }
-                if (line.indexOf("total") !== -1 && (line.indexOf("vram") !== -1 || line.indexOf("VRAM") !== -1)) {
-                    var totalMatch = line.match(/(\d+)\s*(MiB|MB|mib)/i)
-                    if (totalMatch) {
-                        root.gpuMemTotal = parseFloat(totalMatch[1])
-                    }
-                }
+            var parts = stdout.trim().split(", ")
+            if (parts.length >= 2) {
+                var usedMiB = parseFloat(parts[0]) / 1048576
+                var totalMiB = parseFloat(parts[1]) / 1048576
+                if (!isNaN(usedMiB) && usedMiB >= 0) root.gpuMemUsed = Math.round(usedMiB)
+                if (!isNaN(totalMiB) && totalMiB > 0) root.gpuMemTotal = Math.round(totalMiB)
             }
             disconnectSource(source)
         }
@@ -679,7 +669,7 @@ PlasmoidItem {
         onTriggered: {
             // Always fetch CPU, RAM, Net
             cpuCalcSource.connectSource("cat /proc/stat")
-            ramSource.connectSource("free -b")
+            ramSource.connectSource("LC_ALL=C free -b")
             netSource.connectSource("cat /proc/net/dev")
 
             // CPU Freq + Disk usage (for hover popup - lightweight)
@@ -702,12 +692,15 @@ PlasmoidItem {
                         gpuAmdTempSource.connectSource("cat /sys/class/drm/card0/device/hwmon/hwmon*/temp1_input 2>/dev/null || cat /sys/class/drm/card1/device/hwmon/hwmon*/temp1_input 2>/dev/null")
                     }
                     if (root.showGpuUsage) {
-                        gpuAmdMemSource.connectSource("cat /sys/class/drm/card0/device/mem_info_vram_used 2>/dev/null && echo ' used' && cat /sys/class/drm/card0/device/mem_info_vram_total 2>/dev/null && echo ' total'")
+                        gpuVramSource.connectSource("echo \"$(cat /sys/class/drm/card[0-9]/device/mem_info_vram_used 2>/dev/null), $(cat /sys/class/drm/card[0-9]/device/mem_info_vram_total 2>/dev/null)\"")
                     }
                 } else if (root.gpuType === 2) {
                     // Intel
                     if (root.showGpuTemp) {
                         gpuIntelTempSource.connectSource("cat /sys/class/drm/card0/device/hwmon/hwmon*/temp1_input 2>/dev/null || cat /sys/class/drm/card1/device/hwmon/hwmon*/temp1_input 2>/dev/null")
+                    }
+                    if (root.showGpuUsage) {
+                        gpuVramSource.connectSource("echo \"$(cat /sys/class/drm/card[0-9]/device/mem_info_vram_used 2>/dev/null), $(cat /sys/class/drm/card[0-9]/device/mem_info_vram_total 2>/dev/null)\"")
                     }
                 }
             }
